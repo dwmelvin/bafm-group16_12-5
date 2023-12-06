@@ -1,0 +1,142 @@
+.bigal
+{
+    height: 500px;
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 50%; */
+}
+
+.header
+{
+    font-size: 60px;
+    text-align: center;
+}
+
+.loginlinks
+{
+    font-size: 20px;
+    text-align: center;
+}
+
+#tableBody
+{
+    margin-bottom: 70px;
+    float: right;
+    font-size: 30px;
+    text-align: center;
+}
+
+.pageheader
+{
+    max-width: 100%;
+    height: auto;
+    /* width: 50%; */
+    position: relative;
+    text-align: center;
+}
+
+.pagetextheader
+{
+    position: absolute;
+    top: 27%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 100px;
+    color: white;
+    border: 10px black;
+}
+
+.forms
+{
+    text-align: center;
+    font-size: 24px;
+    /* display: table; */
+}
+
+.vendorhistorybutton
+{
+    text-align: center;
+    font-size: 24px;
+}
+
+.table td
+{
+    font-size: 30px;
+    text-align: center;
+}
+
+.table th
+{
+    font-size: 30px;
+    text-align: center;
+}
+
+.cardimage
+{
+    height: 400px;
+    width: 400px;
+    overflow: hidden;
+}
+
+.center
+{
+    float: right;
+    margin-right: 32.75%;
+}
+
+/* .form  { display: table;      }
+.p     { display: table-row;  }
+.label { display: table-cell; }
+.input { display: table-cell; } */
+
+/* .table
+{
+    border: 1px solid;
+    border-collapse: collapse;
+} */
+
+/* .table tr
+{
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+.table td
+{
+    border: 1px solid;
+    border-collapse: collapse;
+} */
+
+.imagecards
+{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+
+/* image cards */
+/* .polaroid 
+{
+    width: 80%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+  
+img 
+{
+    width: 100%
+}
+
+div.container 
+{
+    text-align: center;
+    padding: 10px 20px;
+} */
+
+.bgcolor
+{
+    background-color: rgb(180, 239, 135);
+}
