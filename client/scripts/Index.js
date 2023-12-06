@@ -8,7 +8,7 @@ function getAllBusinesses() {
     fetch(url).then(function(response){
         return response.json()
     }).then(function(json){
-        createTable(json)
+        populateTable(json)
     })
 }
 
@@ -41,8 +41,6 @@ function populateTable()
             <thead>
                 <tr>`
                     mybusinesses.forEach(function (business) {
-                    if (business.date === today)
-                    {
                         html += `
                     <td>${business.date}</td>
                 </tr>
@@ -93,7 +91,6 @@ function populateTable()
         </table>
     </td>
     </tr>`
-}
 });
     html += `</table>`;
     

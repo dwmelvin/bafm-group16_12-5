@@ -21,7 +21,7 @@ function signUp()
                 <option value="business">Business</option>
             </select><br><br>
 
-            <div class = "loginlinks"><h2><button class = "btn btn-success" style = "font-size: 27px;" onclick = "">Enter</button></h2></div>
+            <div class = "loginlinks"><h2><button class = "btn btn-success" style = "font-size: 27px;" onclick = "handleAdd()">Enter</button></h2></div>
             <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "handleOnLoad()">Return Home</button></h2></div>
         </div>
     `
