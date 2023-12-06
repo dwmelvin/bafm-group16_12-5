@@ -1,0 +1,60 @@
+.bigal
+{
+    height: 852px;
+}
+
+.header
+{
+    float: right;
+    margin-right: 100px;
+    font-size: 27px;
+    text-align: center;
+}
+
+.loginlinks
+{
+    font-size: 20px;
+    text-align: center;
+}
+
+#tableBody
+{
+    margin-bottom: 70px;
+    float: right;
+    font-size: 30px;
+    text-align: center;
+}
+
+.container
+{
+    position: relative;
+    text-align: center;
+}
+
+.pageheaders
+{
+    position: absolute;
+    top: 27%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 100px;
+    color: white;
+}
+
+.table
+{
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+.table tr
+{
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+.table td
+{
+    border: 1px solid;
+    border-collapse: collapse;
+}
