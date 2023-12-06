@@ -1,3 +1,8 @@
+using MySql.Data.MySqlClient;
+using System.Collections.Generic;
+using api;
+using api.Models;
+
 namespace api.Models
 {
     public class BookedSlotUtility
@@ -17,8 +22,8 @@ namespace api.Models
                 var bookedSlot = new BookedSlot  
                 {
                     BookedSlotID = rdr.GetInt32("bookedSlotID"),
-                    EventSlotID = rdr.GetString("eventSlotID"),
-                    BusinessID = rdr.GetString("businessID"),
+                    EventSlotID = rdr.GetInt32("eventSlotID"),
+                    BusinessID = rdr.GetInt32("businessID"),
  
                 };
                 bookedSlotList.Add(bookedSlot);
