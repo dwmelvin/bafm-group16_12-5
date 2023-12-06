@@ -38,7 +38,7 @@ namespace api.Models
             using var con = new MySqlConnection(db.cs);
             con.Open();
                                                                                                                                            
-            string stm = @"INSERT INTO eventSlot (EventSlotID, eventDate, location) VALUES (@eventSlotID, @eventdate, @location)";
+            string stm = @"INSERT INTO eventSlot (eventSlotID, eventDate, location) VALUES (@eventSlotID, @eventdate, @location)";
             using var cmd = new MySqlCommand(stm, con);
  
             // check @'s for data mistargeting/labeling
