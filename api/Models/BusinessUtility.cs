@@ -28,7 +28,7 @@ namespace api.Models
                     BusinessName = rdr.GetString("businessName"),
                     Description = rdr.GetString("description"),
                     CoverImage = rdr.GetString("coverImage"),
-                    Deleted = rdr.GetBoolean("deleted"),
+                    Deleted = rdr.GetBoolean("deleted")
                 };
                 businessList.Add(business);
             }
