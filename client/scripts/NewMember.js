@@ -14,6 +14,12 @@ function signUp()
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password"><br>
+
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description"><br>
+
+            <label for="coverPhoto">Cover Photo:</label>
+            <input type="url" id="coverPhoto" name="coverPhoto"><br><br>
         </form>
 
             <select name="type" id="type">
@@ -30,13 +36,17 @@ function signUp()
 
 async function handleAdd() {
     // changed Name -> BusinessName, Email -> BusinessEmail, Password -> BusinessPassword
+    
     let business = {
       BusinessName: document.getElementById("name").value,
       BusinessEmail: document.getElementById("email").value,
       BusinessPassword: document.getElementById("password").value,
-      Delete: false,
+      Description:"",
+      CoverImage:"",
+      Delete: false
     };
     mybusinesses.push(business);
+    console.log(business)
 
     await fetch(url, {
       method: "POST",
@@ -54,9 +64,12 @@ async function handleAdd() {
       BusinessName: document.getElementById("name").value,
       BusinessEmail: document.getElementById("email").value,
       BusinessPassword: document.getElementById("password").value,
+      Description: document.getElementById("description").value,
+      CoverImage: document.getElementById("coverPhoto").value,
       Delete: false,
     };
     console.log("save", business);
+    
     await fetch(url, {
       method: "POST",
       body: JSON.stringify(business),
