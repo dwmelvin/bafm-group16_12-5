@@ -29,11 +29,11 @@ function signUp()
 }
 
 async function handleAdd() {
-
+    // changed Name -> BusinessName, Email -> BusinessEmail, Password -> BusinessPassword
     let business = {
-      Name: document.getElementById("name").value,
-      Email: document.getElementById("email").value,
-      Password: document.getElementById("password").value,
+      BusinessName: document.getElementById("name").value,
+      BusinessEmail: document.getElementById("email").value,
+      BusinessPassword: document.getElementById("password").value,
       Delete: false,
     };
     mybusinesses.push(business);
@@ -49,10 +49,11 @@ async function handleAdd() {
   }
 
   async function save() {
+    // changed Name -> BusinessName, Email -> BusinessEmail, Password -> BusinessPassword
     let business = {
-      Name: document.getElementById("name").value,
-      Email: document.getElementById("email").value,
-      Password: document.getElementById("password").value,
+      BusinessName: document.getElementById("name").value,
+      BusinessEmail: document.getElementById("email").value,
+      BusinessPassword: document.getElementById("password").value,
       Delete: false,
     };
     console.log("save", business);

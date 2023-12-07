@@ -1,130 +1,20 @@
+// displaying picture, header, and login/signup buttons
+let app = document.getElementById('app')
 const url = 'https://localhost:7198/api/Business'
-let businesses = [];
+let mybusinesses = [];
 
-  // async function handleOnLoad() {
-  //   let response = await fetch(url);
-  //   myExercises = await response.json();
-  //   console.log(myExercises);
+function handleOnLoad()
+{
+    let html = `
+        <h1 class = "header">Big Al's Farmer's Market</h1>
+        <img src = "resources/FarmerBigAl.jpg" alt = "Big Al" class = "bigal"><br>
+            <div class = "header"> 
+                <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "signUp()">New Member</button></h2></div>
+                <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "newMember()">Returning Member</button></h2></div>
+                <div id = "tableBody"></div>
+            </div>`
 
-  //   document.getElementById("form").style.display = "none";
-
-  //   let html = `
-  //     <h1 id="tidefit-header">TideFit</h1>
-  //     <h2 id="workout-log-header">Workout Log</h2>
-  //     <h6 id="motto-statement"> Level Up Your Fitness and Stay Consistent</h6>
-  //     <td>
-  //     <button type="Add Exercise Button" class="Add Exercise" onclick="showForm()">Add Exercise</button>
-  //     </td>
-  //         <table class="table table-striped ">
-  //             <tr> 
-                  
-  //                 <th>Exercise Type</th>
-  //                 <th>Exercise Duration</th>
-  //                 <th>Exercise Date</th>
-  //                 <th>Pin</th>
-  //                 <th>Delete</th>
-  //             </tr>`;
-  
-  //   myExercises.sort(
-  //     (a, b) => Date.parse(b.exerciseDate) - Date.parse(a.exerciseDate)
-  //   );
-  //   myExercises.forEach(function (exercise) {
-  //     if (exercise.delete === false) {
-  //       const pinText = exercise.pinned ? "Pinned" : "Pin";
-  //       const backgroundColor = exercise.pinned
-  //         ? "rgba(0, 0, 255, 0.5)"
-  //         : "Transparent";
-  //       const borderStyle = exercise.pinned ? "solid 2px red" : "none";
-  //       html += `
-  //             <tr>
-  //             <td class="vertical-line">${exercise.exerciseType}</td>
-  //             <td class="vertical-line">${exercise.exerciseDuration}</td>
-  //             <td class="vertical-line">${exercise.exerciseDate}</td>
-  //             <td class="vertical-line"><button type="button" id="unpinned-btn-${exercise.exerciseID}" class="btn btn-Pin" style="background-color: ${backgroundColor}; border: ${borderStyle};" onclick="handleExercisePin(${exercise.exerciseID}, ${exercise.pinned})">${pinText}</button></td>
-  //             <td class="vertical-line"><button type="button" id="deleted-btn-${exercise.exerciseID}" class="btn btn-Delete" style="background-color: red; color: white;" onclick="handleExerciseDelete(${exercise.exerciseID})">Delete</button></td>
-  //         </tr>`;
-  //     }
-  //   });
-  //   html += `</table>`;
-  //   document.getElementById("app").innerHTML = html;
-  // }
-
-  // async function handleExerciseDelete(referenceExerciseID) {
-  //   let exercise = {exerciseID: referenceExerciseID, exerciseDate: "", exerciseDuration:"", exerciseType: "", pinned: false, delete: true};
-  //   await fetch(url, {
-  //     method: "DELETE",
-  //     body: JSON.stringify(exercise),
-  //     headers: {
-  //       "Content-type": "application/json; charset=UTF-8",
-  //     },
-  //   });
-  //   await handleOnLoad();
-  // }
-
-  // async function handleExercisePin(referenceExerciseID, referencePinned) {
-  //   console.log(referencePinned);
-  //   let exercise = {exerciseID: referenceExerciseID, exerciseDate: "", exerciseDuration:"", exerciseType: "", pinned: referencePinned, delete: false};
-
-  //   await fetch(url, {
-  //     method: "PUT",
-  //     body: JSON.stringify(exercise),
-  //     headers: {
-  //       "Content-type": "application/json; charset=UTF-8",
-  //     },
-  //   });
-
-  //   handleOnLoad();
-  // }
-
-  // async function handleExerciseAdd() {
-
-  //   let exercise = {
-  //     ExerciseType: document.getElementById("exercisetype").value,
-  //     ExerciseDuration: document.getElementById("exerciseduration").value,
-  //     ExerciseDate: document.getElementById("exercisedate").value,
-  //     Delete: false,
-  //     Pinned: false,
-  //   };
-  //   myExercises.push(exercise);
-
-  //   await fetch(url, {
-  //     method: "POST",
-  //     body: JSON.stringify(exercise),
-  //     headers: {
-  //       "Content-type": "application/json; charset=UTF-8",
-  //     },
-  //   });
-  //   handleOnLoad();
-  // }
-
-  // async function saveExercise() {
-  //   let exercise = {
-  //     ExerciseID: generateUniqueID(),
-  //     ExerciseType: document.getElementById("exercisetype").value,
-  //     ExerciseDuration: document.getElementById("exerciseduration").value,
-  //     exerciseDate: document.getElementById("exercisedate").value,
-  //     Delete: false,
-  //     Pinned: false,
-  //   };
-  //   console.log("saveExercise", exercise);
-  //   await fetch(url, {
-  //     method: "POST",
-  //     body: JSON.stringify(exercise),
-  //     headers: {
-  //       "Content-Type": "application/json; charset=utf-8",
-  //     },
-  //   });
-  // }
-
-  // function generateUniqueID() {
-  //   return Math.floor(Math.random() * 2000);
-  // }
-
-  // function showForm() {
-  //   document.getElementById("form").style.display = "block";
-  // }
-
-function handleOnLoad() {
+    document.getElementById('app').innerHTML = html
     getAllBusinesses()
 }
 
@@ -133,11 +23,12 @@ function getAllBusinesses() {
     fetch(url).then(function(response){
         return response.json()
     }).then(function(json){
-        createTable(json)
+        populateTable(json)
     })
 }
 
-function createTable(businesses) {
+// populates condensed calendar, use foreach loops and date 
+function populateTable(businesses) {
 
     //create table
     let table = document.createElement('TABLE')
@@ -183,7 +74,8 @@ function createTable(businesses) {
         let td3 = document.createElement('TD')
         td3.width = 500
         let img = document.createElement('IMG')
-        img.src = business.coverImageURL
+        img.src = business.coverImage
+        img.classList.add('business-image')
         td3.appendChild(img)
         tr.appendChild(td3)
 
@@ -203,3 +95,67 @@ function createTable(businesses) {
 
     app.appendChild(table)
 }
+
+// figure out how to popuate rows vertically
+
+// myBusinesses.forEach(function(business)
+// {
+//     // business name for that day
+// })
+
+{/*
+<table class = "table table-striped">
+<tr>
+<td>
+    <table>
+        <thead>
+            <tr>
+                <td class="vertical-line">Nov 30</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Pete's Meats</td>
+            </tr>
+            <tr>
+                <td>Tina's Flowers</td>
+            </tr>
+        </tbody>
+    </table>
+</td>
+<td>
+    <table>
+        <thead>
+            <tr>
+                <td>Dec 1</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Dave's Bread</td>
+            </tr>
+            <tr>
+                <td>Tina's Flowers</td>
+            </tr>
+        </tbody>
+    </table>
+</td>
+<td>
+    <table>
+        <thead>
+            <tr>
+                <td>Dec 2</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Pete's Meats</td>
+            </tr>
+            <tr>
+                <td>Farm Fresh Foods</td>
+            </tr>
+        </tbody>
+    </table>
+</td>
+</tr>
+</table> */}
