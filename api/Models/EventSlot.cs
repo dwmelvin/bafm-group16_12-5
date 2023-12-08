@@ -4,6 +4,6 @@ namespace api.Controllers
     {
         public int EventSlotID {get; set;}
         public string Date {get; set;}
-        public string Lot {get; set;}
+        public string Location {get; set;}
     }
 }
