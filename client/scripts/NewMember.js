@@ -1,4 +1,4 @@
-function signUp()
+function newMember()
 {
     let html = `
         <div class = "pageheader"><img src = "resources/FoodBanner.jpg" width="1490" height="450"></img></div>
@@ -6,48 +6,47 @@ function signUp()
         <br>
         <div class = "forms">
         <form>
-            <label for="name">Name/Business Name:</label>
-            <input type="name" id="name" name="name"><br>
+            <label for="Name">Business Name:</label>
+            <input type="text" id="Name" name="Name" required><br>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email"><br>
+            <label for="Email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
 
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password"><br>
+            <label for="Password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
 
-            <label for="description">Description:</label>
-            <input type="text" id="description" name="description"><br>
+            <label for="Description">Description:</label>
+            <input type="text" id="Description" name="Description"><br>
 
-            <label for="coverPhoto">Cover Photo:</label>
-            <input type="url" id="coverPhoto" name="coverPhoto"><br><br>
-        </form>
+            <label for="CoverImage">Cover Photo URL:</label>
+            <input type="url" id="CoverImage" name="CoverImage">
 
-            <select name="type" id="type">
-                <option value="attendee">Attendee</option>
-                <option value="business">Business</option>
-            </select><br><br>
+            <div style = "visibility: hidden;">
+              <label for="Deleted">Deleted</label>
+              <input type="text" id="delete" name="delete">
+            </div>
+        </form><br>
 
-            <div class = "loginlinks"><h2><button class = "btn btn-success" style = "font-size: 27px;" onclick = "handleAdd()">Enter</button></h2></div>
+            <div class = "loginlinks"><h2><button class = "btn btn-success" style = "font-size: 27px;" onclick = "save()">Enter</button></h2></div>
             <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "handleOnLoad()">Return Home</button></h2></div>
         </div>
     `
     document.getElementById('app').innerHTML = html
 }
 
-async function handleAdd() {
+let mybusinesses = [];
+async function handleAdd(url) {
     // changed Name -> BusinessName, Email -> BusinessEmail, Password -> BusinessPassword
-    
     let business = {
-      BusinessName: document.getElementById("name").value,
-      BusinessEmail: document.getElementById("email").value,
-      BusinessPassword: document.getElementById("password").value,
-      Description:"",
-      CoverImage:"",
-      Delete: false
+      businessName: document.getElementById("name").value,
+      businessEmail: document.getElementById("email").value,
+      businessPassword: document.getElementById("password").value,
+      Deleted: true,
+      Description: "",
+      CoverImage: "",
     };
     mybusinesses.push(business);
-    console.log(business)
-
+    //I think its the post
     await fetch(url, {
       method: "POST",
       body: JSON.stringify(business),
@@ -60,21 +59,43 @@ async function handleAdd() {
 
   async function save() {
     // changed Name -> BusinessName, Email -> BusinessEmail, Password -> BusinessPassword
-    let business = {
-      BusinessName: document.getElementById("name").value,
-      BusinessEmail: document.getElementById("email").value,
-      BusinessPassword: document.getElementById("password").value,
-      Description: document.getElementById("description").value,
-      CoverImage: document.getElementById("coverPhoto").value,
-      Delete: false,
-    };
-    console.log("save", business);
-    
-    await fetch(url, {
-      method: "POST",
-      body: JSON.stringify(business),
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-      },
-    });
+    let business = {Name: document.getElementById('Name').value, Email: document.getElementById('email').value, Password: document.getElementById('password').value, Deleted: document.getElementById('delete').value, Description: document.getElementById('Description').value, CoverImage: document.getElementById('CoverImage').value}
+    mybusinesses.push(business)
+    localStorage.setItem('mybusinesses', JSON.stringify(mybusinesses))
+    document.getElementById('Name').value = ''
+    document.getElementById('email').value = ''
+    document.getElementById('password').value = ''
+    document.getElementById('delete').value = false
+    document.getElementById('Description').value = ''
+    document.getElementById('CoverImage').value = ''
+
+    //     let business = {
+//       Name: document.getElementById("name").value,
+//       Email: document.getElementById("email").value,
+//       Password: document.getElementById("password").value,
+//     };
+//     mybusinesses.push(business);
+
+//     await fetch(url, {
+//       method: "POST",
+//       body: JSON.stringify(business),
+//       headers: {
+//         "Content-type": "application/json; charset=UTF-8",
+//       },
+//     });
+//     handleOnLoad();
+    // let business = {
+    //   BusinessName: document.getElementById("name").value,
+    //   BusinessEmail: document.getElementById("email").value,
+    //   BusinessPassword: document.getElementById("password").value,
+    //   Delete: false,
+    // };
+    // console.log("save", business);
+    // await fetch(url, {
+    //   method: "POST",
+    //   body: JSON.stringify(business),
+    //   headers: {
+    //     "Content-Type": "application/json; charset=utf-8",
+    //   },
+    // });
   }

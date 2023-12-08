@@ -1,7 +1,7 @@
 // displaying picture, header, and login/signup buttons
 let app = document.getElementById('app')
 const url = 'https://localhost:7198/api/Business'
-let mybusinesses = [];
+
 
 function handleOnLoad()
 {
@@ -9,8 +9,9 @@ function handleOnLoad()
         <h1 class = "header">Big Al's Farmer's Market</h1>
         <img src = "resources/FarmerBigAl.jpg" alt = "Big Al" class = "bigal"><br>
             <div class = "header"> 
-                <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "signUp()">New Member</button></h2></div>
-                <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "newMember()">Returning Member</button></h2></div>
+                <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "customerCalendar()">See Upcoming Events</button></h2></div>
+                <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "newMember()">Sign Up as a Business</button></h2></div>
+                <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "returningMember()">Returning Business</button></h2></div>
                 <div id = "tableBody"></div>
             </div>`
 
@@ -23,7 +24,6 @@ function getAllBusinesses() {
     fetch(url).then(function(response){
         return response.json()
     }).then(function(json){
-        console.log(json)
         populateTable(json)
     })
 }
@@ -103,60 +103,3 @@ function populateTable(businesses) {
 // {
 //     // business name for that day
 // })
-
-{/*
-<table class = "table table-striped">
-<tr>
-<td>
-    <table>
-        <thead>
-            <tr>
-                <td class="vertical-line">Nov 30</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Pete's Meats</td>
-            </tr>
-            <tr>
-                <td>Tina's Flowers</td>
-            </tr>
-        </tbody>
-    </table>
-</td>
-<td>
-    <table>
-        <thead>
-            <tr>
-                <td>Dec 1</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Dave's Bread</td>
-            </tr>
-            <tr>
-                <td>Tina's Flowers</td>
-            </tr>
-        </tbody>
-    </table>
-</td>
-<td>
-    <table>
-        <thead>
-            <tr>
-                <td>Dec 2</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Pete's Meats</td>
-            </tr>
-            <tr>
-                <td>Farm Fresh Foods</td>
-            </tr>
-        </tbody>
-    </table>
-</td>
-</tr>
-</table> */}

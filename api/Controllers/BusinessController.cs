@@ -14,7 +14,7 @@ namespace api.Controllers
     [ApiController]
     public class BusinessController : ControllerBase
     {
-        // GET: api/Exercise
+        // GET: api/Business
         [HttpGet]
         public List<Business> Get()
         {
@@ -22,7 +22,7 @@ namespace api.Controllers
             return utility.GetAllBusinesses();
         }
 
-        // POST: api/Exercise
+        // POST: api/Business
         [HttpPost]
         public void Post([FromBody] Business value)
         {
@@ -30,7 +30,7 @@ namespace api.Controllers
             utility.AddBusiness(value);
         }
 
-        // PUT: api/Exercise
+        // PUT: api/Business
         [HttpPut]
         //  [FromBody] Exercise value
         public void Put([FromBody] Business value)
@@ -39,7 +39,7 @@ namespace api.Controllers
             utility.UpdateBusiness(value);
         }
 
-        // DELETE: api/Exercise/5
+        // DELETE: api/Business
         [HttpDelete]
         public void Delete([FromBody] Business value)
         {

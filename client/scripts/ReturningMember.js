@@ -1,4 +1,4 @@
-function newMember()
+function returningMember()
 {
     let html =`
     <div class = "pageheader"><img src = "resources/FoodBanner.jpg" width="1490" height="450"></img></div>
@@ -13,11 +13,10 @@ function newMember()
             <input type="password" id="password" name="password"><br><br>
         </form>
         
-        <button class = "btn btn-success" style = "font-size: 27px;" onclick = "sendToRightPlace">Enter</button><br><br>
-        <button class = "btn btn-light" style = "font-size: 27px;" onclick = "handleOnLoad()">Return Home</button><br>
+        <div class = "loginlinks"><h2><button class = "btn btn-success" style = "font-size: 27px;" onclick = "sendToRightPlace">Enter</button></h2></div>
+        <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "handleOnLoad()">Return Home</button></h2></div><br>
     </div>
-
-
+        
     <button onclick = "adminAccess()">Admin Access</button><br>
     <button onclick = "businessCalendar()">Business Access</button><br>
     <button onclick = "customerCalendar()">Customer Access</button><br>`
@@ -31,11 +30,11 @@ function sendToRightPlace()
     {
         adminAccess();
     }
-    if(businesses.type === attendee)
+    else if(businesses.type === attendee)
     {
         customerCalendar();
     }
-    if(businesses.type === business)
+    else if(businesses.type === business)
     {
         businessCalendar();
     }
