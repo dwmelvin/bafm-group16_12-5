@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jackw\\MIS321\\updatedgp\\bafm-group16_12-5\\api\\api.csproj": {}
+    "C:\\Users\\jackw\\MIS321\\UpdatedGP\\bafm-group16_12-5\\api\\api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jackw\\MIS321\\updatedgp\\bafm-group16_12-5\\api\\api.csproj": {
+    "C:\\Users\\jackw\\MIS321\\UpdatedGP\\bafm-group16_12-5\\api\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jackw\\MIS321\\updatedgp\\bafm-group16_12-5\\api\\api.csproj",
+        "projectUniqueName": "C:\\Users\\jackw\\MIS321\\UpdatedGP\\bafm-group16_12-5\\api\\api.csproj",
         "projectName": "api",
-        "projectPath": "C:\\Users\\jackw\\MIS321\\updatedgp\\bafm-group16_12-5\\api\\api.csproj",
+        "projectPath": "C:\\Users\\jackw\\MIS321\\UpdatedGP\\bafm-group16_12-5\\api\\api.csproj",
         "packagesPath": "C:\\Users\\jackw\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jackw\\MIS321\\updatedgp\\bafm-group16_12-5\\api\\obj\\",
+        "outputPath": "C:\\Users\\jackw\\MIS321\\UpdatedGP\\bafm-group16_12-5\\api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

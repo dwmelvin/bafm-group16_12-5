@@ -47,20 +47,20 @@ namespace api.Models
             cmd.ExecuteNonQuery();
         }
         // we don't have a deleted field on eventSlot table
-        // public void DeleteEventSlot(EventSlot eventSlot)
-        // {
-        //     ConnectionString db = new ConnectionString();
-        //     using var con = new MySqlConnection(db.cs);
-        //     con.Open();
+        public void DeleteEventSlot(EventSlot eventSlot)
+        {
+            // ConnectionString db = new ConnectionString();
+            // using var con = new MySqlConnection(db.cs);
+            // con.Open();
 
-        //     string stm = @"UPDATE eventSlot SET deleted = @deleted WHERE eventSlotID = @eventSlotID";
-        //     using var cmd = new MySqlCommand(stm, con);
+            // string stm = @"UPDATE eventSlot SET deleted = @deleted WHERE eventSlotID = @eventSlotID";
+            // using var cmd = new MySqlCommand(stm, con);
 
-        //     cmd.Parameters.AddWithValue("@eventSlotID", eventSlot.EventSlotID);
-        //     cmd.Parameters.AddWithValue("@deleted", 1);
-        //     cmd.Prepare();
-        //     cmd.ExecuteNonQuery();
-        // }
+            // cmd.Parameters.AddWithValue("@eventSlotID", eventSlot.EventSlotID);
+            // cmd.Parameters.AddWithValue("@deleted", 1);
+            // cmd.Prepare();
+            // cmd.ExecuteNonQuery();
+        }
         public void UpdateEventSlot(EventSlot eventSlot)
         {
             ConnectionString db = new ConnectionString();
