@@ -37,23 +37,23 @@ function newMember()
 let mybusinesses = [];
 async function handleAdd(url) {
     // changed Name -> BusinessName, Email -> BusinessEmail, Password -> BusinessPassword
-    let business = {
-      businessName: document.getElementById("name").value,
-      businessEmail: document.getElementById("email").value,
-      businessPassword: document.getElementById("password").value,
-      Deleted: true,
-      Description: "",
-      CoverImage: "",
-    };
-    mybusinesses.push(business);
-    //I think its the post
-    await fetch(url, {
-      method: "POST",
-      body: JSON.stringify(business),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    });
+    // let business = {
+    //   businessName: document.getElementById("name").value,
+    //   businessEmail: document.getElementById("email").value,
+    //   businessPassword: document.getElementById("password").value,
+    //   Deleted: true,
+    //   Description: "",
+    //   CoverImage: "",
+    // };
+    // mybusinesses.push(business);
+    // //I think its the post
+    // await fetch(url, {
+    //   method: "POST",
+    //   body: JSON.stringify(business),
+    //   headers: {
+    //     "Content-type": "application/json; charset=UTF-8",
+    //   },
+    // });
     handleOnLoad();
   }
 

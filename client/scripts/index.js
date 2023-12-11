@@ -1,21 +1,11 @@
 // displaying picture, header, and login/signup buttons
 let app = document.getElementById('app')
-const url = 'https://localhost:7198/api/Business'
+const url = 'https://localhost:7198/api/EventSlot'
 
 
 function handleOnLoad()
 {
-    let html = `
-        <h1 class = "header">Big Al's Farmer's Market</h1>
-        <img src = "resources/FarmerBigAl.jpg" alt = "Big Al" class = "bigal"><br>
-            <div class = "header"> 
-                <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "customerCalendar()">See Upcoming Events</button></h2></div>
-                <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "newMember()">Sign Up as a Business</button></h2></div>
-                <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "returningMember()">Returning Business</button></h2></div>
-                <div id = "tableBody"></div>
-            </div>`
-
-    document.getElementById('app').innerHTML = html
+    // createForm()
     getAllBusinesses()
 }
 
@@ -29,58 +19,45 @@ function getAllBusinesses() {
 }
 
 // populates condensed calendar, use foreach loops and date 
-function populateTable(businesses) {
-
+function populateTable(eventSlots) {
     //create table
     let table = document.createElement('TABLE')
     table.border = '1'
-    table.id = 'businessTable'
+    table.id = 'eventTable'
     let tableBody = document.createElement('TBODY')
-    tableBody.id = 'businessTableBody'
+    tableBody.id = 'eventTableBody'
     table.appendChild(tableBody)
 
     // create header
     let tr = document.createElement('TR')
     tableBody.appendChild(tr)
+
     let th1 = document.createElement('TH')
     th1.width = 500
-    th1.appendChild(document.createTextNode('Business Name'))
+    th1.appendChild(document.createTextNode('Location'))
     tr.appendChild(th1)
+
     let th2 = document.createElement('TH')
     th2.width = 200
-    th2.appendChild(document.createTextNode('More Info'))
+    th2.appendChild(document.createTextNode('Date'))
     tr.appendChild(th2)
-    let th3 = document.createElement('TH')
-    th3.width = 200
-    th3.appendChild(document.createTextNode('Picture'))
-    tr.appendChild(th3)
 
     //create data rows
-    businesses.forEach((business)=>{
+    eventSlots.forEach((eventSlot)=>{
         let tr = document.createElement('TR')
         tableBody.appendChild(tr)
 
         let td1 = document.createElement('TD')
         td1.width = 500
-        let name = business.businessName
-        td1.appendChild(document.createTextNode(name))
+        let location = eventSlot.location
+        td1.appendChild(document.createTextNode(location))
         tr.appendChild(td1)
 
         let td2 = document.createElement('TD')
         td2.width = 500
-        let description = business.description
-        td2.appendChild(document.createTextNode(description))
+        let date = eventSlot.date
+        td2.appendChild(document.createTextNode(date))
         tr.appendChild(td2)
-
-        let td3 = document.createElement('TD')
-        td3.width = 500
-        let img = document.createElement('IMG')
-        img.src = business.coverImage
-        img.classList.add('business-image')
-        td3.appendChild(img)
-        tr.appendChild(td3)
-
-
 
         // let pageButton = document.createElement('button')
         // pageButton.textContent = 'Remove'
@@ -96,10 +73,3 @@ function populateTable(businesses) {
 
     app.appendChild(table)
 }
-
-// figure out how to popuate rows vertically
-
-// myBusinesses.forEach(function(business)
-// {
-//     // business name for that day
-// })

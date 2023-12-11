@@ -16,11 +16,11 @@ namespace api.Controllers
         }
  
         [HttpPost]
-        public void Post([FromBody] BookedSlotRequest value)
+        public void Post()
         {
             
             BookedSlotUtility utility = new BookedSlotUtility();
-            utility.AddBookedSlot(value);
+            utility.AddBookedSlot();
         }
  
         [HttpPut]

@@ -14,7 +14,7 @@ namespace api.Models
             using var con = new MySqlConnection(db.cs);
             con.Open();
             var eventSlotList = new List<EventSlot>();
-            string stm = "SELECT * FROM eventSlot";
+            string stm = "SELECT * FROM eventslot";
             using var cmd = new MySqlCommand(stm, con);
 
             using MySqlDataReader rdr = cmd.ExecuteReader();
@@ -37,7 +37,7 @@ namespace api.Models
             using var con = new MySqlConnection(db.cs);
             con.Open();
 
-            string stm = @"INSERT INTO eventSlot (eventDate, location) VALUES (@eventdate, @location)";
+            string stm = @"INSERT INTO eventslot (eventDate, location) VALUES (@eventdate, @location)";
             using var cmd = new MySqlCommand(stm, con);
 
             cmd.Parameters.AddWithValue("@eventdate", eventSlot.Date);
@@ -67,7 +67,7 @@ namespace api.Models
             using var con = new MySqlConnection(db.cs);
             con.Open();
 
-            string stm = @"UPDATE eventSlot 
+            string stm = @"UPDATE eventslot 
                SET                    
                    date = @date, 
                    location = @location 

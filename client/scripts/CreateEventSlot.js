@@ -15,24 +15,25 @@ function createEventSlot()
     document.getElementById('app').innerHTML = html
 }
 
-let myEventSlots = []
 async function saveEventSlot()
 {
+    let myEventSlots = []
     let eventSlot = 
     {
+        EventSlotID: -1,
         EventDate: document.getElementById("eventDate").value,
         Location: document.getElementById("location").value
     }
     myEventSlots.push(eventSlot)
     await fetch('https://localhost:7198/api/EventSlot', {
         method: "POST",
-        body: JSON.stringify(eventSlot),
+        body: JSON.stringify(myEventSlots),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
     });
 
-    showEventSlots()
+    adminAccess()
 }
 
 function showEventSlots() {
@@ -43,13 +44,13 @@ function getAllEvents() {
     // get data send to table creator
     fetch('https://localhost:7198/api/EventSlot').then(function(response){
         return response.json()
-    }).then(function(json){
-        createEventTable(json.results)
+    }).then(function(jsonResults){
+        createEventTable(jsonResults)
     })
 }
 
 // populates condensed calendar, use foreach loops and date 
-function createEventTable(eventSlot) {
+function createEventTable(eventSlots) {
     
     //create table
     let table = document.createElement('TABLE')

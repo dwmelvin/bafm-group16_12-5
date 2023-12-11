@@ -14,26 +14,13 @@ namespace api.Controllers
             BookedSlotRequestUtility utility = new BookedSlotRequestUtility();
             return utility.GetAllBookedSlotRequests();
         }
- 
-        // [HttpPost]
-        // public void Post([FromBody] EventSlot value1, Business value2)
-        // {
-        //     BookedSlotUtility utility = new BookedSlotUtility();
-        //     utility.AddBookedSlot(value1, value2);
-        // }
- 
-        // [HttpPut]
-        // public void Put([FromBody] BookedSlot value)
-        // {
-        //     // BookedSlotUtility utility = new BookedSlotUtility();
-        //     // utility.UpdateBookedSlot(value);
-        // }
- 
-        // [HttpDelete]
-        // public void Delete([FromBody] BookedSlot value)
-        // {
-        //     BookedSlotUtility utility = new BookedSlotUtility();
-        //     utility.DeleteBookedSlot(value);
-        // }
+
+
+        [HttpPost]
+        public void Post([FromBody] BookedSlotRequest value)
+        {
+            BookedSlotRequestUtility utility = new BookedSlotRequestUtility();
+            utility.AddBookedSlotRequest(value);
+        }
     }
 }

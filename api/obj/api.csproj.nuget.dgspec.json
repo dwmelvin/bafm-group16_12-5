@@ -1,25 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\A55ki\\mis\\bafm-group16_12-5\\api\\api.csproj": {}
+    "C:\\Users\\jackw\\MIS321\\UpdatedGP\\bafm-group16_12-5\\api\\api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\A55ki\\mis\\bafm-group16_12-5\\api\\api.csproj": {
+    "C:\\Users\\jackw\\MIS321\\UpdatedGP\\bafm-group16_12-5\\api\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\A55ki\\mis\\bafm-group16_12-5\\api\\api.csproj",
+        "projectUniqueName": "C:\\Users\\jackw\\MIS321\\UpdatedGP\\bafm-group16_12-5\\api\\api.csproj",
         "projectName": "api",
-        "projectPath": "C:\\Users\\A55ki\\mis\\bafm-group16_12-5\\api\\api.csproj",
-        "packagesPath": "C:\\Users\\A55ki\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\A55ki\\mis\\bafm-group16_12-5\\api\\obj\\",
+        "projectPath": "C:\\Users\\jackw\\MIS321\\UpdatedGP\\bafm-group16_12-5\\api\\api.csproj",
+        "packagesPath": "C:\\Users\\jackw\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jackw\\MIS321\\UpdatedGP\\bafm-group16_12-5\\api\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\A55ki\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\jackw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -62,24 +69,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.24, 6.0.24]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[6.0.24, 6.0.24]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.24, 6.0.24]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.24, 6.0.24]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -88,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

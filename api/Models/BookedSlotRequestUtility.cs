@@ -14,7 +14,7 @@ namespace api.Models
             using var con = new MySqlConnection(db.cs);
             con.Open();
             var bookedSlotRequestList = new List<BookedSlotRequest>();
-            string stm = "SELECT businessID, eventSlotID FROM bookedSlot";
+            string stm = "SELECT businessID, eventSlotID FROM bookedSlotRequest";
             using var cmd = new MySqlCommand(stm, con);
 
             using MySqlDataReader rdr = cmd.ExecuteReader();
@@ -31,34 +31,21 @@ namespace api.Models
             con.Close();
             return bookedSlotRequestList;
         }
-        // public void AddBookedSlot(BookedSlotRequest bookedSlotRequest)
-        // {
-        //     ConnectionString db = new ConnectionString();
-        //     using var con = new MySqlConnection(db.cs);
-        //     con.Open();
+        
+         public void AddBookedSlotRequest(BookedSlotRequest bookedSlotRequest)
+        {
+            ConnectionString db = new ConnectionString();
+            using var con = new MySqlConnection(db.cs);
+            con.Open();
 
-        //     string stm = @"INSERT INTO bookedSlot (eventSlotID, businessID) VALUES (@eventSlotID, @businessID)";
-        //     using var cmd = new MySqlCommand(stm, con);
+            string stm = @"INSERT INTO bookedSlotRequest (businessID, eventSlotID) VALUES (@businessID, @eventSlotID)";
+            using var cmd = new MySqlCommand(stm, con);
 
-        //     cmd.Parameters.AddWithValue("@eventSlotID", bookedSlotRequest.EventSlotID);
-        //     cmd.Parameters.AddWithValue("@businessID", bookedSlotRequest.BusinessID);
+            cmd.Parameters.AddWithValue("@businessID", bookedSlotRequest.BusinessID);
+            cmd.Parameters.AddWithValue("@eventSlotID", bookedSlotRequest.EventSlotID);
 
-        //     cmd.Prepare();
-        //     cmd.ExecuteNonQuery();
-        // }
-        // public void DeleteBookedSlot(BookedSlot bookedSlot)
-        // {
-        //     // ConnectionString db = new ConnectionString();
-        //     // using var con = new MySqlConnection(db.cs);
-        //     // con.Open();
-
-        //     // string stm = @"UPDATE businesses SET deleted = @deleted WHERE businessID = @BusinessID";
-        //     // using var cmd = new MySqlCommand(stm, con);
-
-        //     // cmd.Parameters.AddWithValue("@BusinessID", bookedSlot.BusinessID);
-        //     // cmd.Parameters.AddWithValue("@deleted", 1);
-        //     // cmd.Prepare();
-        //     // cmd.ExecuteNonQuery();
-        // }
+            cmd.Prepare();
+            cmd.ExecuteNonQuery();
+        }
     }
 }

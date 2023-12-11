@@ -36,20 +36,38 @@ namespace api.Models
             con.Close();
             return bookedSlotList;
         }
-        public void AddBookedSlot(BookedSlotRequest bookedSlotRequest)
+        public void AddBookedSlot()
         {
             ConnectionString db = new ConnectionString();
             using var con = new MySqlConnection(db.cs);
             con.Open();
 
-            string stm = @"INSERT INTO bookedSlot (eventSlotID, businessID) VALUES (@eventSlotID, @businessID)";
+            string stm = "SELECT businessID, eventSlotID FROM bookedSlotRequest";
             using var cmd = new MySqlCommand(stm, con);
+            using MySqlDataReader rdr = cmd.ExecuteReader();
+            var businessID = rdr.GetInt32("businessID");
+            var eventSlotID = rdr.GetInt32("eventSlotID");
+            while(rdr.Read()){
 
-            cmd.Parameters.AddWithValue("@eventSlotID", bookedSlotRequest.EventSlotID);
-            cmd.Parameters.AddWithValue("@businessID", bookedSlotRequest.BusinessID);
+                 var newstm = @"INSERT INTO bookedSlot (eventSlotID, businessID) VALUES (@eventSlotID, @businessID)";
+                using var newcmd = new MySqlCommand(newstm, con);
 
-            cmd.Prepare();
-            cmd.ExecuteNonQuery();
+                newcmd.Parameters.AddWithValue("@eventSlotID", eventSlotID);
+                newcmd.Parameters.AddWithValue("@businessID", businessID);
+
+                newcmd.Prepare();
+                newcmd.ExecuteNonQuery();
+            }
+
+            var neweststm = "DELETE FROM bookedSlotRequest WHERE businessID = @businessID AND eventSlotID = @eventSlotID";
+            using var newestcmd = new MySqlCommand(neweststm, con);
+
+            newestcmd.Parameters.AddWithValue("@businessID", businessID);
+            newestcmd.Parameters.AddWithValue("@eventSlotID", eventSlotID);
+            newestcmd.Prepare();
+            newestcmd.ExecuteNonQuery();
+
+            con.Close();
         }
         public void DeleteBookedSlot(BookedSlot bookedSlot)
         {
