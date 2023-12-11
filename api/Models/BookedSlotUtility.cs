@@ -49,7 +49,7 @@ namespace api.Models
             var eventSlotID = rdr.GetInt32("eventSlotID");
             while(rdr.Read()){
 
-                 var newstm = @"INSERT INTO bookedSlot (eventSlotID, businessID) VALUES (@eventSlotID, @businessID)";
+                string newstm = @"INSERT INTO bookedSlot (eventSlotID, businessID) VALUES (@eventSlotID, @businessID)";
                 using var newcmd = new MySqlCommand(newstm, con);
 
                 newcmd.Parameters.AddWithValue("@eventSlotID", eventSlotID);
@@ -59,7 +59,7 @@ namespace api.Models
                 newcmd.ExecuteNonQuery();
             }
 
-            var neweststm = "DELETE FROM bookedSlotRequest WHERE businessID = @businessID AND eventSlotID = @eventSlotID";
+            string neweststm = "DELETE FROM bookedSlotRequest WHERE businessID = @businessID AND eventSlotID = @eventSlotID";
             using var newestcmd = new MySqlCommand(neweststm, con);
 
             newestcmd.Parameters.AddWithValue("@businessID", businessID);
