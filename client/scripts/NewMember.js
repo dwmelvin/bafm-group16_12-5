@@ -1,7 +1,7 @@
 function newMember()
 {
     let html = `
-        <div class = "pageheader"><img src = "resources/FoodBanner.jpg" width="1490" height="450"></img></div>
+        <div class = "pageheader"><img src = "./scripts/resources/FoodBanner.jpg" width="1490" height="450"></img></div>
         <div class = "pagetextheader">Sign Up</div>
         <br>
         <div class = "forms">

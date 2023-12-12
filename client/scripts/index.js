@@ -5,8 +5,20 @@ const url = 'https://localhost:7198/api/EventSlot'
 
 function handleOnLoad()
 {
-    // createForm()
-    getAllBusinesses()
+    let html = `
+        <header>
+        <h1>Big Al's Farmer's Market</h1>
+        <h2>Login Homepage</h2>
+        </header>
+        <img src = "./scripts/resources/FarmerBigAl.jpg" alt = "Big Al" class = "bigal"><br>
+            <div class = "header">
+                <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "customerCalendar()">See Upcoming Events</button></h2></div>
+                <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "newMember()">Sign Up as a Business</button></h2></div>
+                <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "returningMember()">Returning Business</button></h2></div>
+                <div id = "tableBody"></div>
+            </div>`
+ 
+    document.getElementById('app').innerHTML = html
 }
 
 function getAllBusinesses() {
