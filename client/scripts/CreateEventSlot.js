@@ -22,7 +22,8 @@ async function saveEventSlot()
     {
         EventSlotID: -1,
         EventDate: document.getElementById("eventDate").value,
-        Location: document.getElementById("location").value
+        Location: document.getElementById("location").value,
+        Requested: false
     }
     myEventSlots.push(eventSlot)
     await fetch('https://localhost:7198/api/EventSlot', {
