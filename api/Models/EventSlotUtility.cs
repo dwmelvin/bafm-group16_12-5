@@ -24,7 +24,8 @@ namespace api.Models
                 {
                     EventSlotID = rdr.GetInt32("eventSlotID"),
                     Date = rdr.GetString("eventDate"),
-                    Location = rdr.GetString("location")
+                    Location = rdr.GetString("location"),
+                    Requested = rdr.GetBoolean("requested")
                 };
                 eventSlotList.Add(eventSlot);
             }
@@ -37,31 +38,18 @@ namespace api.Models
             using var con = new MySqlConnection(db.cs);
             con.Open();
 
-            string stm = @"INSERT INTO eventslot (eventDate, location) VALUES (@eventdate, @location)";
+            string stm = @"INSERT INTO eventslot (eventDate, location, requested) VALUES (@eventdate, @location, @requested)";
             using var cmd = new MySqlCommand(stm, con);
 
             cmd.Parameters.AddWithValue("@eventdate", eventSlot.Date);
             cmd.Parameters.AddWithValue("@location", eventSlot.Location);
+            cmd.Parameters.AddWithValue("@requested", eventSlot.Requested);
 
             cmd.Prepare();
             cmd.ExecuteNonQuery();
         }
-        // we don't have a deleted field on eventSlot table
-        public void DeleteEventSlot(EventSlot eventSlot)
-        {
-            // ConnectionString db = new ConnectionString();
-            // using var con = new MySqlConnection(db.cs);
-            // con.Open();
 
-            // string stm = @"UPDATE eventSlot SET deleted = @deleted WHERE eventSlotID = @eventSlotID";
-            // using var cmd = new MySqlCommand(stm, con);
-
-            // cmd.Parameters.AddWithValue("@eventSlotID", eventSlot.EventSlotID);
-            // cmd.Parameters.AddWithValue("@deleted", 1);
-            // cmd.Prepare();
-            // cmd.ExecuteNonQuery();
-        }
-        public void UpdateEventSlot(EventSlot eventSlot)
+        public void RequestEventSlot(EventSlot eventSlot)
         {
             ConnectionString db = new ConnectionString();
             using var con = new MySqlConnection(db.cs);
@@ -70,13 +58,15 @@ namespace api.Models
             string stm = @"UPDATE eventslot 
                SET                    
                    date = @date, 
-                   location = @location 
+                   location = @location,
+                   requested = @requested 
                WHERE eventSlotID = @eventSlotID";
             using var cmd = new MySqlCommand(stm, con);
 
             cmd.Parameters.AddWithValue("@eventSlotID", eventSlot.EventSlotID);
             cmd.Parameters.AddWithValue("@date", eventSlot.Date);
             cmd.Parameters.AddWithValue("@location", eventSlot.Location);
+            cmd.Parameters.AddWithValue("@requested", eventSlot.Requested);
             cmd.Prepare();
             cmd.ExecuteNonQuery();
         }

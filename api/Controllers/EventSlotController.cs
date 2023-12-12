@@ -26,14 +26,7 @@ namespace api.Controllers
         public void Put([FromBody] EventSlot value)
         {
             EventSlotUtility utility = new EventSlotUtility();
-            utility.UpdateEventSlot(value);
-        }
- 
-        [HttpDelete]
-        public void Delete([FromBody] EventSlot value)
-        {
-            EventSlotUtility utility = new EventSlotUtility();
-            utility.DeleteEventSlot(value);
+            utility.RequestEventSlot(value);
         }
     }
 }

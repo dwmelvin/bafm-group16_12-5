@@ -16,25 +16,18 @@ namespace api.Controllers
         }
  
         [HttpPost]
-        public void Post()
+        public void Post([FromBody] BookedSlot value)
         {
             
             BookedSlotUtility utility = new BookedSlotUtility();
-            utility.AddBookedSlot();
+            utility.AddBookedSlot(value);
         }
  
         [HttpPut]
         public void Put([FromBody] BookedSlot value)
         {
-            // BookedSlotUtility utility = new BookedSlotUtility();
-            // utility.UpdateBookedSlot(value);
-        }
- 
-        [HttpDelete]
-        public void Delete([FromBody] BookedSlot value)
-        {
             BookedSlotUtility utility = new BookedSlotUtility();
-            utility.DeleteBookedSlot(value);
+            utility.ApproveBookedSlot(value);
         }
     }
 }
