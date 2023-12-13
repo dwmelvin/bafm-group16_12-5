@@ -17,13 +17,13 @@ function customerCalendar()
  
 async function getAllApproved()
 {
-    fetch(approvalUrl).then(function(response){
+    fetch('https://localhost:7198/api/Approval').then(function(response){
         return response.json()
     }).then(function(json){
         createCustomerTable(json)
     })
 }
- 
+
 function createCustomerTable(approvedSlots)
 {
  
@@ -41,43 +41,105 @@ function createCustomerTable(approvedSlots)
  
     let th1 = document.createElement('TH')
     th1.width = 500
-    th1.appendChild(document.createTextNode('Date'))
+    th1.appendChild(document.createTextNode('Sunday 12/17'))
     tr.appendChild(th1)
  
     let th2 = document.createElement('TH')
     th2.width = 200
-    th2.appendChild(document.createTextNode('Location'))
+    th2.appendChild(document.createTextNode('Monday 12/18'))
     tr.appendChild(th2)
  
     let th3 = document.createElement('TH')
     th3.width = 200
-    th3.appendChild(document.createTextNode('Businesses'))
+    th3.appendChild(document.createTextNode('Tuesday 12/19'))
     tr.appendChild(th3)
+
+    let th4 = document.createElement('TH')
+    th4.width = 200
+    th4.appendChild(document.createTextNode('Wednesday 12/20'))
+    tr.appendChild(th4)
+
+    let th5 = document.createElement('TH')
+    th5.width = 200
+    th5.appendChild(document.createTextNode('Thursday 12/21'))
+    tr.appendChild(th5)
+
+    let th6 = document.createElement('TH')
+    th6.width = 200
+    th6.appendChild(document.createTextNode('Friday 12/22'))
+    tr.appendChild(th6)
+
+    let th7 = document.createElement('TH')
+    th7.width = 200
+    th7.appendChild(document.createTextNode('Saturday 12/23'))
+    tr.appendChild(th7)
  
+
+    let tr2 = document.createElement('TR')
+    tableBody.appendChild(tr2)
+    let td1 = document.createElement('TD')
+    td1.width = 500
+    let td2 = document.createElement('TD')
+    td2.width = 500
+    let td3 = document.createElement('TD')
+    td3.width = 500
+    let td4 = document.createElement('TD')
+    td4.width = 500
+    let td5 = document.createElement('TD')
+    td5.width = 500
+    let td6 = document.createElement('TD')   
+    td6.width = 500
+    let td7 = document.createElement('TD')   
+    td7.width = 500
     //create data rows
     approvedSlots.forEach((approvedslot)=>{
-            let tr = document.createElement('TR')
-            tableBody.appendChild(tr)
+            if (approvedslot.date == '2023-12-17') {
+                let lot = approvedslot.lot
+                let businessName = approvedslot.businessName
+                td1.appendChild(document.createTextNode(lot,businessName))
+            }
  
-            let td1 = document.createElement('TD')
-            td1.width = 500
-            let date = approvedslot.date
-            td1.appendChild(document.createTextNode(date))
-            tr.appendChild(td1)
- 
-            let td2 = document.createElement('TD')
-            td2.width = 500
-            let location = approvedslot.location
-            td2.appendChild(document.createTextNode(location))
-            tr.appendChild(td2)
- 
-            let td3 = document.createElement('TD')
-            td3.width = 500
-            let business = approvedslot.businessName
-            td3.appendChild(document.createTextNode(business))
-            tr.appendChild(td3)          
+            else if (approvedslot.date == '2023-12-18') {
+                let lot = approvedslot.lot
+                let businessName = approvedslot.businessName
+                td2.appendChild(document.createTextNode(lot,businessName))
+            }
+            
+            else if (approvedslot.date == '2023-12-19') {
+                let lot = approvedslot.lot
+                let businessName = approvedslot.businessName
+                td3.appendChild(document.createTextNode(lot,businessName))
+            }
+            else if (approvedslot.date == '2023-12-20') {
+                let lot = approvedslot.lot
+                let businessName = approvedslot.businessName
+                td4.appendChild(document.createTextNode(lot,businessName))
+            }
+            else if (approvedslot.date == '2023-12-21') {
+                let lot = approvedslot.lot
+                let businessName = approvedslot.businessName
+                td5.appendChild(document.createTextNode(lot,businessName))
+            }
+            else if (approvedslot.date == '2023-12-22') {
+                let lot = approvedslot.lot
+                let businessName = approvedslot.businessName
+                td6.appendChild(document.createTextNode(lot,businessName))
+            }
+
+            else if (approvedslot.date == '2023-12-23') {
+                let lot = approvedslot.lot
+                let businessName = approvedslot.businessName
+                td7.appendChild(document.createTextNode(lot,businessName))
+            }
         }
     )
+    tr2.appendChild(td1)
+    tr2.appendChild(td2)
+    tr2.appendChild(td3)
+    tr2.appendChild(td4)
+    tr2.appendChild(td5)
+    tr2.appendChild(td6)
+    tr2.appendChild(td7)
  
     app.appendChild(table)
 }

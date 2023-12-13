@@ -3,3 +3,8 @@ C:\Users\16308\Desktop\pa4\obj\Debug\net6.0\pa4.GeneratedMSBuildEditorConfig.edi
 C:\Users\16308\Desktop\pa4\obj\Debug\net6.0\pa4.AssemblyInfoInputs.cache
 C:\Users\16308\Desktop\pa4\obj\Debug\net6.0\pa4.AssemblyInfo.cs
 C:\Users\16308\Desktop\pa4\obj\Debug\net6.0\pa4.csproj.CoreCompileInputs.cache
+C:\Users\jackw\MIS321\UpdatedGP\bafm-group16_12-5\obj\Debug\net6.0\pa4.csproj.AssemblyReference.cache
+C:\Users\jackw\MIS321\UpdatedGP\bafm-group16_12-5\obj\Debug\net6.0\pa4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jackw\MIS321\UpdatedGP\bafm-group16_12-5\obj\Debug\net6.0\pa4.AssemblyInfoInputs.cache
+C:\Users\jackw\MIS321\UpdatedGP\bafm-group16_12-5\obj\Debug\net6.0\pa4.AssemblyInfo.cs
+C:\Users\jackw\MIS321\UpdatedGP\bafm-group16_12-5\obj\Debug\net6.0\pa4.csproj.CoreCompileInputs.cache

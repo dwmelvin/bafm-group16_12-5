@@ -5,7 +5,6 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    /* width: 50%; */
 }
 
 header {
@@ -43,7 +42,6 @@ h2 {
 {
     max-width: 100%;
     height: auto;
-    /* width: 50%; */
     position: relative;
     text-align: center;
 }
@@ -63,7 +61,6 @@ h2 {
 {
     text-align: center;
     font-size: 24px;
-    /* display: table; */
 }
 
 .vendorhistorybutton
@@ -97,29 +94,6 @@ h2 {
     margin-right: 32.75%;
 }
 
-/* .form  { display: table;      }
-.p     { display: table-row;  }
-.label { display: table-cell; }
-.input { display: table-cell; } */
-
-/* .table
-{
-    border: 1px solid;
-    border-collapse: collapse;
-} */
-
-/* .table tr
-{
-    border: 1px solid;
-    border-collapse: collapse;
-}
-
-.table td
-{
-    border: 1px solid;
-    border-collapse: collapse;
-} */
-
 .imagecards
 {
     width: 100px;
@@ -127,27 +101,69 @@ h2 {
     object-fit: cover;
 }
 
-
-/* image cards */
-/* .polaroid 
-{
-    width: 80%;
-    background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-  
-img 
-{
-    width: 100%
-}
-
-div.container 
-{
-    text-align: center;
-    padding: 10px 20px;
-} */
-
 .bgcolor
 {
     background-color: rgb(180, 239, 135);
 }
+
+#acceptBusinessHeader,
+#acceptBookedHeader,
+#businessTableHeader {
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #035200; 
+    color: #fff; 
+    padding: 8px;
+}
+
+#businessApproveTable,
+#bookedApproveTable,
+#businessTable {
+    border-collapse: collapse;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#businessApproveTable td,
+#bookedApproveTable td,
+#businessTable td {
+    border: 1px solid #ddd; 
+    text-align: left;
+    padding: 6px;
+    background-color: #f0f0f0;
+}
+
+#businessApproveTable th,
+#bookedApproveTable th,
+#businessTable th {
+    padding-top: 20px;
+    background-color: #035200; 
+    color: #fff; 
+}
+
+button {
+    background-color: #29b929;
+    color: #fff; 
+    border: none;
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    justify-content: center;
+    transition-duration: .5s;
+    border: 1px solid #29b929;
+}
+
+button:hover {
+    background-color: #f0f0f0;
+    color: #29b929;
+    border: 1px solid #000000;
+}
+

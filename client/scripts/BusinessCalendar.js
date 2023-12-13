@@ -1,11 +1,8 @@
 function businessCalendar(businessid)
 {
-    let businessID = businessid
-    let html = document.getElementById('app')
-    html = ''
-    document.getElementById('app').innerHTML = html
-
-    getAllEvents(businessID)
+    console.log(businessid)
+    createEditVendor(businessid)
+    getAllEvents(businessid)
 }
 
 // use for businesses
@@ -21,6 +18,10 @@ function getAllEvents(businessID) {
 // use for businesses
 // populates condensed calendar, use foreach loops and date 
 function createEventTable(eventSlots, businessID) {
+
+    let header = document.createElement('HEADER')
+    header.id = 'businessTableHeader'
+    header.appendChild(document.createTextNode('Available Event Slots'))
 
     //create table
     let table = document.createElement('TABLE')
@@ -115,4 +116,16 @@ async function CreateBookedSlot(eventSlot, businessID) {
           "Content-type": "application/json; charset=UTF-8",
         },
       });
+}
+
+function createEditVendor(businessid) {
+    let editVendorButton = document.createElement('button')
+    editVendorButton.textContent = 'Edit Your Info'
+        app.appendChild(editVendorButton)
+        
+
+        editVendorButton.addEventListener('click', function (event) {
+            event.preventDefault()
+            editVendorInfo(businessid)
+        })
 }

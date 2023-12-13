@@ -2,13 +2,13 @@ function adminAccess()
 {
     getAllDeletedBusinesses()
     getAllBookedRequests()
-    let html = document.getElementById('app');
-            html +=`
+            let html =`
         <div class = "forms">
             <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "individualVendorHistory()">View Vendor Reports</button></h2></div>
             <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "businessCalendar()">Business View</button></h2></div>
             <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "customerCalendar()">Customer View</button></h2></div>
             <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "createEventSlot()">Create An Event</button></h2></div>
+            <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "createReports()">Generate Reports</button></h2></div>
         </div>
     `
     document.getElementById('app').innerHTML = html
@@ -191,4 +191,5 @@ async function Accept(bookedSlot) {
           "Content-type": "application/json; charset=UTF-8",
         },
     });
+
 }

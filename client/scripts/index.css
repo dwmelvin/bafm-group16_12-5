@@ -92,29 +92,6 @@
     margin-right: 32.75%;
 }
 
-/* .form  { display: table;      }
-.p     { display: table-row;  }
-.label { display: table-cell; }
-.input { display: table-cell; } */
-
-/* .table
-{
-    border: 1px solid;
-    border-collapse: collapse;
-} */
-
-/* .table tr
-{
-    border: 1px solid;
-    border-collapse: collapse;
-}
-
-.table td
-{
-    border: 1px solid;
-    border-collapse: collapse;
-} */
-
 .imagecards
 {
     width: 100px;
@@ -122,27 +99,31 @@
     object-fit: cover;
 }
 
-
-/* image cards */
-/* .polaroid 
-{
-    width: 80%;
-    background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-  
-img 
-{
-    width: 100%
-}
-
-div.container 
-{
-    text-align: center;
-    padding: 10px 20px;
-} */
-
 .bgcolor
 {
     background-color: rgb(180, 239, 135);
+}
+
+#tableBody
+{
+    margin-bottom: 70px;
+    float: right;
+    font-size: 30px;
+    text-align: center;
+}
+
+#businessApproveTableBody
+{
+    margin-bottom: 70px;
+    float: right;
+    font-size: 30px;
+    text-align: center;
+}
+
+#bookedApproveTableBody
+{
+    margin-bottom: 70px;
+    float: right;
+    font-size: 30px;
+    text-align: center;
 }
