@@ -1,6 +1,7 @@
 let myBusiness = [];
 function editVendorInfo(businessid)
 {
+    app.removeChild('businessTable')
     let html = '<div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "businessCalendar(${businessid})">Business View</button></h2></div>'
     
     document.getElementById('app').innerHTML = html
@@ -31,7 +32,7 @@ function createForm(myBusiness) {
     form.id = 'exerciseForm';
   
     let nameLabel = document.createElement('label');
-    nameLabel.for = 'businessName';
+    nameLabel.htmlFor = 'businessName';
     nameLabel.appendChild(document.createTextNode('Business Name: '));
     form.appendChild(nameLabel);
     let nameInput = document.createElement('input');
@@ -41,7 +42,7 @@ function createForm(myBusiness) {
 
 
     let emailLabel = document.createElement('label');
-    emailLabel.for = 'email';
+    emailLabel.htmlFor = 'email';
     emailLabel.appendChild(document.createTextNode('Business Email: '));
     form.appendChild(emailLabel);
     let emailInput = document.createElement('input');
@@ -51,7 +52,7 @@ function createForm(myBusiness) {
 
 
     let passLabel = document.createElement('label');
-    passLabel.for = 'password';
+    passLabel.htmlFor = 'password';
     passLabel.appendChild(document.createTextNode('Business Password: '));
     form.appendChild(passLabel);
     let passInput = document.createElement('input');
@@ -61,7 +62,7 @@ function createForm(myBusiness) {
 
   
     let urlLabel = document.createElement('label');
-    urlLabel.for = 'url';
+    urlLabel.htmlFor = 'url';
     urlLabel.appendChild(document.createTextNode('Cover Image (URL): '));
     form.appendChild(urlLabel);
     let urlInput = document.createElement('input');
@@ -71,7 +72,7 @@ function createForm(myBusiness) {
 
   
     let descLabel = document.createElement('label');
-    descLabel.for = 'description';
+    descLabel.htmlFor = 'description';
     descLabel.appendChild(document.createTextNode('Description: '));
     form.appendChild(descLabel);
     let descInput = document.createElement('input');

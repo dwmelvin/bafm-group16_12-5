@@ -47,7 +47,7 @@ async function sendToRightPlace()
 }
 
 function getAllBusinesses() {
-    fetch(businessUrl).then(function(response){
+    fetch('https://localhost:7198/api/Business').then(function(response){
         return response.json()
     }).then(function(json){
         businesses = json
@@ -56,7 +56,7 @@ function getAllBusinesses() {
 
 function checkBusiness(businesses) {
     businesses.forEach(business => {
-        if (business.businessEmail === document.getElementById('email').value && business.businessPassword === document.getElementById('password').value) {
+        if (business.businessEmail === document.getElementById('email').value && business.businessPassword === document.getElementById('password').value && business.deleted != true) {
             userType = 1;
             businessID = business.businessID;
         }
@@ -64,7 +64,7 @@ function checkBusiness(businesses) {
 }
 
 function getAllAdmins() {
-    fetch(adminUrl).then(function(response){
+    fetch('https://localhost:7198/api/Admin').then(function(response){
         return response.json()
     }).then(function(json){
        admins = json

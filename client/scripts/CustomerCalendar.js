@@ -1,5 +1,6 @@
 function customerCalendar()
 {
+    document.getElementById('app').innerHTML = ''
     let html =`
     <header>
         <h1>Calendar</h1>
@@ -10,14 +11,14 @@ function customerCalendar()
     </div>
    
     `
-    getAllApproved()
     document.getElementById('app').innerHTML = html
+    getAllApproved()
  
 }
  
 async function getAllApproved()
 {
-    fetch('https://localhost:7198/api/Approval').then(function(response){
+    await fetch('https://localhost:7198/api/Approval').then(function(response){
         return response.json()
     }).then(function(json){
         createCustomerTable(json)
@@ -92,8 +93,6 @@ function createCustomerTable(approvedSlots)
     let td7 = document.createElement('TD')   
     td7.width = 500
     //create data rows
-    let div = document.createElement('DIV')
-    let space = document.createElement('BR')
     approvedSlots.forEach((approvedslot)=>{
         console.log(approvedslot)
             if (approvedslot.date == '2023-12-17') {
