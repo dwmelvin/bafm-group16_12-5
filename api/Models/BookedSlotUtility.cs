@@ -55,7 +55,7 @@ namespace api.Models
             using var con = new MySqlConnection(db.cs);
             con.Open();
 
-            string stm = @"UPDATE eventslot 
+            string stm = @"UPDATE bookedSlot 
                SET                    
                    businessID = @businessID, 
                    eventSlotID = @eventSlotID,

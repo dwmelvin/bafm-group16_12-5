@@ -23,7 +23,7 @@ function newMember()
     document.getElementById('app').innerHTML = html
 }
 
-let mybusinesses = [];
+  let mybusinesses = [];
     async function handleAddBusiness() {
 
     let business = {
@@ -45,17 +45,3 @@ let mybusinesses = [];
     });
     handleOnLoad();
   }
-
-//   async function save() {
-//     // changed Name -> BusinessName, Email -> BusinessEmail, Password -> BusinessPassword
-//     let business = {Name: document.getElementById('Name').value, Email: document.getElementById('email').value, Password: document.getElementById('password').value, Deleted: document.getElementById('delete').value, Description: document.getElementById('Description').value, CoverImage: document.getElementById('CoverImage').value}
-//     mybusinesses.push(business)
-//     localStorage.setItem('mybusinesses', JSON.stringify(mybusinesses))
-//     document.getElementById('Name').value = ''
-//     document.getElementById('email').value = ''
-//     document.getElementById('password').value = ''
-//     document.getElementById('delete').value = true
-//     document.getElementById('Description').value = ''
-//     document.getElementById('CoverImage').value = ''
-
-//   }

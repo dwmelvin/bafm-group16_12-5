@@ -1,6 +1,7 @@
 let businesses = [];
 let admins = [];
 let userType = 0;
+let businessID = 0;
 function returningMember()
 {
     getAllBusinesses()
@@ -22,7 +23,6 @@ function returningMember()
         <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "handleOnLoad()">Return Home</button></h2></div><br>
     </div>
         
-    <button onclick = "businessCalendar()">Business Access</button><br>
     <button onclick = "customerCalendar()">Customer Access</button><br>`
 
     document.getElementById('app').innerHTML = html
@@ -34,7 +34,7 @@ async function sendToRightPlace()
     checkAdmin(admins)
 
     if (userType == 1) {
-        //put some here fellas
+        businessCalendar(businessID)
     }
 
     else if (userType == 2) {
@@ -58,6 +58,7 @@ function checkBusiness(businesses) {
     businesses.forEach(business => {
         if (business.businessEmail === document.getElementById('email').value && business.businessPassword === document.getElementById('password').value) {
             userType = 1;
+            businessID = business.businessID;
         }
     });
 }

@@ -18,18 +18,18 @@ namespace api.Models
                             FROM bookedSlot bs
                             JOIN businesses b ON bs.businessID = b.businessID
                             JOIN eventSlot es ON bs.eventSlotID = es.eventSlotID
-                            WHERE bs.approved = 1;
-                            ";
+                            WHERE bs.approved = 1;";
             using var cmd = new MySqlCommand(stm, con);
 
             using MySqlDataReader rdr = cmd.ExecuteReader();
 
-            while(rdr.Read()){
-                var approval = new Approval  
+            while (rdr.Read())
+            {
+                var approval = new Approval
                 {
-                    BusinessName = rdr.GetString("b.businessName"),
-                    Date = rdr.GetString("es.eventDate"),
-                    Location = rdr.GetString("es.location")
+                    BusinessName = rdr.GetString(0),
+                    Date = rdr.GetString(1),
+                    Location = rdr.GetString(2)
                 };
                 approvalList.Add(approval);
             }
