@@ -1,7 +1,7 @@
 let myBusiness = [];
 function editVendorInfo(businessid)
 {
-    app.removeChild('businessTable')
+
     let html = '<div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "businessCalendar(${businessid})">Business View</button></h2></div>'
     
     document.getElementById('app').innerHTML = html

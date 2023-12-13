@@ -118,7 +118,8 @@ h2 {
 
 #businessApproveTable,
 #bookedApproveTable,
-#businessTable {
+#businessTable,
+#customerTable {
     border-collapse: collapse;
     width: 80%;
     display: flex;
@@ -129,7 +130,8 @@ h2 {
 
 #businessApproveTable td,
 #bookedApproveTable td,
-#businessTable td {
+#businessTable td,
+#customerTable td {
     border: 1px solid #ddd; 
     text-align: left;
     padding: 6px;
@@ -138,7 +140,8 @@ h2 {
 
 #businessApproveTable th,
 #bookedApproveTable th,
-#businessTable th {
+#businessTable th,
+#customerTable th {
     padding-top: 20px;
     background-color: #035200; 
     color: #fff; 

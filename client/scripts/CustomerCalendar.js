@@ -12,11 +12,11 @@ function customerCalendar()
    
     `
     document.getElementById('app').innerHTML = html
-    getAllApproved()
+    getCustomerCalendar()
  
 }
  
-async function getAllApproved()
+async function getCustomerCalendar()
 {
     await fetch('https://localhost:7198/api/Approval').then(function(response){
         return response.json()

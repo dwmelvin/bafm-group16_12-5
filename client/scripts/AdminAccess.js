@@ -4,7 +4,6 @@ function adminAccess()
     getAllBookedRequests()
             let html =`
         <div class = "forms">
-            <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "individualVendorHistory()">View Vendor Reports</button></h2></div>
             <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "businessCalendar()">Business View</button></h2></div>
             <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "customerCalendar()">Customer View</button></h2></div>
             <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "createEventSlot()">Create An Event</button></h2></div>

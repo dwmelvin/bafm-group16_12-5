@@ -21,9 +21,7 @@ function returningMember()
         
         <div class = "loginlinks"><h2><button class = "btn btn-success" style = "font-size: 27px;" onclick = "sendToRightPlace()">Enter</button></h2></div>
         <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "handleOnLoad()">Return Home</button></h2></div><br>
-    </div>
-        
-    <button onclick = "customerCalendar()">Customer Access</button><br>`
+    </div>`
 
     document.getElementById('app').innerHTML = html
 }
