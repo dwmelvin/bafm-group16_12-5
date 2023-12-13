@@ -14,17 +14,6 @@ function newMember()
 
             <label for="Password">Password:</label>
             <input type="password" id="password" name="password" required><br>
-
-            <label for="Description">Description:</label>
-            <input type="text" id="Description" name="Description"><br>
-
-            <label for="CoverImage">Cover Photo URL:</label>
-            <input type="url" id="CoverImage" name="CoverImage">
-
-            <div style = "visibility: hidden;">
-              <label for="Deleted">Deleted</label>
-              <input type="text" id="delete" name="delete">
-            </div>
         </form><br>
 
             <div class = "loginlinks"><h2><button class = "btn btn-success" style = "font-size: 27px;" onclick = "handleAddBusiness()">Enter</button></h2></div>

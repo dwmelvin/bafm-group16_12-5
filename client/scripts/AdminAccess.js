@@ -20,7 +20,7 @@ async function Approve(business)
     business.deleted = false;
 
     await fetch(businessUrl, {
-        method: "POST",
+        method: "PUT",
         body: JSON.stringify(business),
         headers: {
           "Content-type": "application/json; charset=UTF-8",

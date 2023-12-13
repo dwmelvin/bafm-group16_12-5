@@ -72,15 +72,23 @@ namespace api.Models
             con.Open();
 
             string stm = @"UPDATE businesses 
-               SET                    
+                SET                    
+                   businessEmail = @businessemail,
+                   businessPassword = @businessPassword,
+                   businessName = @businessname,
                    description = @description, 
-                   coverImage = @coverImage 
+                   coverImage = @coverImage,
+                   deleted = @deleted
                WHERE businessID = @businessID";
             using var cmd = new MySqlCommand(stm, con);
 
             cmd.Parameters.AddWithValue("@businessID", business.BusinessID);
             cmd.Parameters.AddWithValue("@description", business.Description);
             cmd.Parameters.AddWithValue("@coverImage", business.CoverImage);
+            cmd.Parameters.AddWithValue("@businessemail", business.BusinessEmail);
+            cmd.Parameters.AddWithValue("@businessPassword", business.BusinessPassword);
+            cmd.Parameters.AddWithValue("@businessname", business.BusinessName);
+            cmd.Parameters.AddWithValue("@deleted", business.Deleted);
             cmd.Prepare();
             cmd.ExecuteNonQuery();
         }
