@@ -18,7 +18,7 @@ function handleOnLoad()
             <div class = "header">
                 <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "customerCalendar()">See Upcoming Events</button></h2></div>
                 <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "newMember()">Sign Up as a Business</button></h2></div>
-                <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "returningMember()">Returning Business</button></h2></div>
+                <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "returningMember()">Returning User</button></h2></div>
                 <div id = "tableBody"></div>
             </div>`
  

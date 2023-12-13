@@ -22,7 +22,6 @@ function returningMember()
         <div class = "loginlinks"><h2><button class = "btn btn-light" style = "font-size: 27px;" onclick = "handleOnLoad()">Return Home</button></h2></div><br>
     </div>
         
-    <button onclick = "adminAccess()">Admin Access</button><br>
     <button onclick = "businessCalendar()">Business Access</button><br>
     <button onclick = "customerCalendar()">Customer Access</button><br>`
 

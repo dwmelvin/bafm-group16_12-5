@@ -1,25 +1,7 @@
 function adminAccess()
 {
-    let html =`
-        <h1 class = "header">Admin Access</h1>
-
-        <table class = "table table-striped" class = "admintable">
-            <tr>
-                <th>Business</th>
-                <th>Request</th>
-                <th>Approve/Deny</th>
-            </tr>
-            <tr>`
-            mybusinesses.forEach(function(business)
-             {
-                    html +=`
-                <tr>
-                <td>${business.Name}</td>
-                <td>Business</td>
-                <td><button class = "btn btn-success" onclick = "Approve()">Accept</button><button class = "btn btn-danger">Deny</button></td>
-                </tr>`
-                }
-            )
+    getAllDeletedBusinesses()
+    let html = document.getElementById('app');
             html +=`
         </table>
         <div class = "forms">
@@ -31,57 +13,41 @@ function adminAccess()
     `
     document.getElementById('app').innerHTML = html
 
-    getAllEvents()
 }
 
-async function Approve(Name)
+async function Approve(business)
 {   
-    let myBusiness =JSON.parse(localStorage.getItem('mybusinesses'))
-    if(localStorage.Name === Name)
-    {
-        let business  = {
-            businessID : -1,
-        businessName : myBusiness[0].Name,
-        businessEmail : myBusiness[0].Email ,
-        businessPassword :  myBusiness[0].Password,
-        deleted : false,
-        description : myBusiness[0].Description,
-        coverImage : myBusiness[0].CoverImage
-        };
+    business.deleted = false;
 
-    
-    mybusinesses.push(business);
-
-    await fetch('https://localhost:7198/api/Business', {
+    await fetch(businessUrl, {
         method: "POST",
         body: JSON.stringify(business),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
       });
-      handleOnLoad();
-    }
-};
+      adminAccess();
+}
 
-function getAllEvents() {
+
+function getAllDeletedBusinesses() {
     // get data send to table creator
-    fetch('https://localhost:7198/api/EventSlot').then(function(response){
+    fetch(businessUrl).then(function(response){
         return response.json()
     }).then(function(json){
-        console.log(json)
-        createEventTable(json)
+        createDelBusinessTable(json)
     })
 }
 
 // populates condensed calendar, use foreach loops and date 
-function createEventTable(eventSlots) {
-    console.log(eventSlots)
+function createDelBusinessTable(businesses) {
+
     //create table
     let table = document.createElement('TABLE')
     table.border = '1'
-    table.id = 'eventTable'
+    table.id = 'businessApproveTable'
     let tableBody = document.createElement('TBODY')
-    tableBody.id = 'eventTableBody'
+    tableBody.id = 'businessApproveTableBody'
     table.appendChild(tableBody)
 
     // create header
@@ -90,41 +56,47 @@ function createEventTable(eventSlots) {
 
     let th1 = document.createElement('TH')
     th1.width = 500
-    th1.appendChild(document.createTextNode('Location'))
+    th1.appendChild(document.createTextNode('Business ID'))
     tr.appendChild(th1)
 
     let th2 = document.createElement('TH')
     th2.width = 200
-    th2.appendChild(document.createTextNode('Date'))
+    th2.appendChild(document.createTextNode('Business Name'))
     tr.appendChild(th2)
 
+    let th3 = document.createElement('TH')
+    th3.width = 200
+    tr.appendChild(th3)
+
     //create data rows
-    eventSlots.forEach((eventSlot)=>{
-        let tr = document.createElement('TR')
-        tableBody.appendChild(tr)
+    businesses.forEach((business)=>{
+        if (business.deleted == true) {
+            let tr = document.createElement('TR')
+            tableBody.appendChild(tr)
 
-        let td1 = document.createElement('TD')
-        td1.width = 500
-        let location = eventSlot.location
-        td1.appendChild(document.createTextNode(location))
-        tr.appendChild(td1)
+            let td1 = document.createElement('TD')
+            td1.width = 500
+            let id = business.businessID
+            td1.appendChild(document.createTextNode(id))
+            tr.appendChild(td1)
 
-        let td2 = document.createElement('TD')
-        td2.width = 500
-        let date = eventSlot.date
-        td2.appendChild(document.createTextNode(date))
-        tr.appendChild(td2)
+            let td2 = document.createElement('TD')
+            td2.width = 500
+            let name = business.businessName
+            td2.appendChild(document.createTextNode(name))
+            tr.appendChild(td2)
 
-        // let pageButton = document.createElement('button')
-        // pageButton.textContent = 'Remove'
-        // let td4 = document.createElement('TD')
-        // td4.width = 200
-        // td4.appendChild(pageButton)
-        // tr.appendChild(td4)
+            let approveButton = document.createElement('button')
+            approveButton.textContent = 'Accept'
+            let td4 = document.createElement('TD')
+            td4.width = 200
+            td4.appendChild(approveButton)
+            tr.appendChild(td4)
 
-        // pageButton.addEventListener('click', function () {
-        //     removeBusiness(pokemon.url)
-        // })
+            approveButton.addEventListener('click', function () {
+                Approve(business)
+            })
+        }
     })
 
     app.appendChild(table)
