@@ -92,44 +92,68 @@ function createCustomerTable(approvedSlots)
     let td7 = document.createElement('TD')   
     td7.width = 500
     //create data rows
+    let div = document.createElement('DIV')
+    let space = document.createElement('BR')
     approvedSlots.forEach((approvedslot)=>{
+        console.log(approvedslot)
             if (approvedslot.date == '2023-12-17') {
-                let lot = approvedslot.lot
+                let lot = approvedslot.location
                 let businessName = approvedslot.businessName
-                td1.appendChild(document.createTextNode(lot,businessName))
+                td1.appendChild(document.createTextNode(lot))
+                td1.appendChild(document.createTextNode(': '))
+                td1.appendChild(document.createTextNode(businessName))
+                td1.appendChild(document.createTextNode('\n'))
             }
  
             else if (approvedslot.date == '2023-12-18') {
-                let lot = approvedslot.lot
+                let lot = approvedslot.location
                 let businessName = approvedslot.businessName
-                td2.appendChild(document.createTextNode(lot,businessName))
+                td2.appendChild(document.createTextNode(lot))
+                td2.appendChild(document.createTextNode(': '))
+                td2.appendChild(document.createTextNode(businessName))
+                td2.appendChild(document.createTextNode('\n'))
             }
             
             else if (approvedslot.date == '2023-12-19') {
-                let lot = approvedslot.lot
+                let lot = approvedslot.location
                 let businessName = approvedslot.businessName
-                td3.appendChild(document.createTextNode(lot,businessName))
+                td3.appendChild(document.createTextNode(lot))
+                td3.appendChild(document.createTextNode(': '))
+                td3.appendChild(document.createTextNode(businessName))
+                td3.appendChild(document.createTextNode('\n'))
             }
             else if (approvedslot.date == '2023-12-20') {
-                let lot = approvedslot.lot
+                let lot = approvedslot.location
                 let businessName = approvedslot.businessName
-                td4.appendChild(document.createTextNode(lot,businessName))
+                td4.appendChild(document.createTextNode(lot))
+                td4.appendChild(document.createTextNode(': '))
+                td4.appendChild(document.createTextNode(businessName))
+                td4.appendChild(document.createTextNode('\n'))
             }
             else if (approvedslot.date == '2023-12-21') {
-                let lot = approvedslot.lot
+                let lot = approvedslot.location
                 let businessName = approvedslot.businessName
-                td5.appendChild(document.createTextNode(lot,businessName))
+                td5.appendChild(document.createTextNode(lot))
+                td5.appendChild(document.createTextNode(': '))
+                td5.appendChild(document.createTextNode(businessName))
+                td5.appendChild(document.createTextNode('\n'))
             }
             else if (approvedslot.date == '2023-12-22') {
-                let lot = approvedslot.lot
+                let lot = approvedslot.location
                 let businessName = approvedslot.businessName
-                td6.appendChild(document.createTextNode(lot,businessName))
+                td6.appendChild(document.createTextNode(lot))
+                td6.appendChild(document.createTextNode(': '))
+                td6.appendChild(document.createTextNode(businessName))
+                td6.appendChild(document.createTextNode('\n'))
             }
 
             else if (approvedslot.date == '2023-12-23') {
-                let lot = approvedslot.lot
+                let lot = approvedslot.location
                 let businessName = approvedslot.businessName
-                td7.appendChild(document.createTextNode(lot,businessName))
+                td7.appendChild(document.createTextNode(lot))
+                td7.appendChild(document.createTextNode(': '))
+                td7.appendChild(document.createTextNode(businessName))
+                td7.appendChild(document.createTextNode('\n'))
             }
         }
     )

@@ -1,6 +1,7 @@
 function businessCalendar(businessid)
 {
     console.log(businessid)
+    document.getElementById('app').innerHTML = ''
     createEditVendor(businessid)
     getAllEvents(businessid)
 }
