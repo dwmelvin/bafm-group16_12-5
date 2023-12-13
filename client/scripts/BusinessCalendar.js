@@ -89,6 +89,7 @@ async function RequestSlot(eventSlot, businessID) {
 }
 
 async function UpdateEventSlot(eventSlot) {
+    eventSlot.requested = true
     await fetch('https://localhost:7198/api/EventSlot', {
         method: "PUT",
         body: JSON.stringify(eventSlot),

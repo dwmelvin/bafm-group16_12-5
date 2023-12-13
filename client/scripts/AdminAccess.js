@@ -19,7 +19,7 @@ async function Approve(business)
 {   
     business.deleted = false;
 
-    await fetch(businessUrl, {
+    await fetch('https://localhost:7198/api/Business', {
         method: "PUT",
         body: JSON.stringify(business),
         headers: {
