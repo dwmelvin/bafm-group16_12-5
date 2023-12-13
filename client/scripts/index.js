@@ -1,6 +1,10 @@
 // displaying picture, header, and login/signup buttons
 let app = document.getElementById('app')
-const url = 'https://localhost:7198/api/EventSlot'
+const eventSlotUrl = 'https://localhost:7198/api/EventSlot'
+const businessUrl = 'https://localhost:7198/api/Business'
+const adminUrl = 'https://localhost:7198/api/Admin'
+const bookedSlotUrl = 'https://localhost:7198/api/BookedSlot'
+const approvalUrl = 'https://localhost:7198/api/Approval'
 
 
 function handleOnLoad()
